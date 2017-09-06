@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1> MARBLES EVERYWHERE </h1>
+
+<h3> Create a random marble by clicking the button below</h3>
+    <button class="btn btn-info" type="button"   
+          onclick="location.href='@Url.Action("CreateMarble", "Marbles")'">Create Marble </button>
+
+<h3>Add a marble to your marble bag by clicking below!</h3>
+    <form asp-controller="Marbles" asp-action="Add">
+        <input type="text" placeholder="color" name="color">
+        <button type="submit">Add marble to bag</button>
+    </form>
+
+@model List<MarbleModel>
+
+@foreach (var item in Model)
+{
+    <p>@item.Color</p>
+}
